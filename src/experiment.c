@@ -1,32 +1,42 @@
-#include "raylib.h"
-
-#define RAYGUI_IMPLEMENTATION
-#include "raygui.h"
-
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+#include <stdio.h>
 
 int main(void) {
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Test");
-    SetTargetFPS(60);
+    int a;
+    int b;
+    scanf("%d %d", &a, &b);
 
-    bool showMessageBox = 0;
-
-    while(!WindowShouldClose()) {
-        BeginDrawing();
-            if (GuiButton((Rectangle){ 24, 24, 120, 30 }, "Show Message")) showMessageBox = 1;
-
-            if (showMessageBox)
-            {
-                int result = GuiMessageBox((Rectangle){ 85, 70, 250, 100 },
-                    "Message Box", "Hi! This is a message!", "Nice;Cool");
-
-                if (result >= 0) showMessageBox = 0;
-            }
-        EndDrawing();
+    if (a < b) {
+        printf("a < b\n");
+    } else if (a > b) {
+        printf("a > b\n");
+    } else {
+        printf("a = b\n");
     }
 
-    CloseWindow();
+    switch (a) {
+        case 1:
+            printf("Variant 1\n");
+            break;
+        case 2:
+            printf("Variant 2\n");
+            break;
+        case 3:
+            printf("Variant 3\n");
+            break;
+        default: 
+            printf("Defalult variant\n");
+            break;
+    }
+
+    if (a == 1) {
+        printf("Variant 1\n");
+    } else if (a == 2) {
+        printf("Variant 2\n");
+    } else if (a == 3) {
+        printf("Variant 3\n");
+    } else {
+        printf("Defalult variant\n");
+    }
 
     return 0;
 }
